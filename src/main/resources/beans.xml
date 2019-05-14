@@ -22,14 +22,11 @@
 
     <bean id="movie1" class="com.stackroute.domain.Movie">
         <property name="actor" ref="actor1" />
-
     </bean>
 
 
     <bean id="movie2" class="com.stackroute.domain.Movie">
         <property name="actor" ref="actor2" />
-
-
     </bean>
 
 
