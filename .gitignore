@@ -126,3 +126,4 @@ Desktop.ini
 # Useful .gitignore templates: https://github.com/github/gitignore
 idea/
 SpringTask1.iml
+target/
