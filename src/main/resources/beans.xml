@@ -17,7 +17,6 @@
         <constructor-arg index="2" value="32"></constructor-arg>
     </bean>
 
-
     <bean id="movie1" autowire="byName" class="com.stackroute.domain.Movie" >
         <constructor-arg index="0" ref="actor1" ></constructor-arg>
     </bean>
