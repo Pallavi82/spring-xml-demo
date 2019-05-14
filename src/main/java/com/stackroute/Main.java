@@ -11,7 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 
 public class Main {
 
-    public  static  void main(String args[]) {
+    public  static  void main(String[] args) {
 
         XmlBeanFactory xmlBeanFactory= new XmlBeanFactory ( new ClassPathResource("beans.xml"));
         Movie movie1= (Movie)xmlBeanFactory.getBean("movie1");
