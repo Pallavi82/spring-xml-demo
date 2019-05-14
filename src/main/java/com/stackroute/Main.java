@@ -17,36 +17,25 @@ public class Main {
 
         //Using XmlBeanFactory
 
-        XmlBeanFactory xmlBeanFactory= new XmlBeanFactory ( new ClassPathResource("beans.xml"));
-        Movie movieFirst= (Movie)xmlBeanFactory.getBean("movie1");
-        Movie movieSecond=(Movie)xmlBeanFactory.getBean("movie1");
-
-        //Using ApplicationContext
-
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie=(Movie)applicationContext.getBean("movie2");
+        Movie movie1=(Movie)applicationContext.getBean("movie1");
         Movie movie2=(Movie)applicationContext.getBean("movie2");
-        Movie movie3=(Movie)applicationContext.getBean("movie3");
 
-        //Using BeanDefinitionReader and BeanDefinitionRegistry
-
-        BeanDefinitionRegistry beanDefinitionRegistry = new DefaultListableBeanFactory();
-        BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
-        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
-        Movie movie4=(Movie) ((DefaultListableBeanFactory) beanDefinitionRegistry).getBean("movie2");
-
-
-        System.out.println(movieFirst.getActor());
-        System.out.println(movie.getActor());
-
-        System.out.println(movie==movie2);
-
-        System.out.println(movieFirst==movieSecond);
-
-        System.out.println(movie3.getActor());
-
-        System.out.println(movie4.getActor());
+        System.out.println(movie1.getActor());
+        System.out.println(movie2.getActor());
 
 
     }
 }
+
+/*
+Exception in thread "main" org.springframework.beans.factory.
+UnsatisfiedDependencyException: Error creating bean with name 'movie2' defined in class path resource [beans.xml]:
+Unsatisfied dependency expressed through bean property 'actor';
+nested exception is org.springframework.beans.factory.
+NoUniqueBeanDefinitionException: No qualifying bean of type 'com.stackroute.domain.Actor' available:
+expected single matching bean but found 2: actor1,actor2
+
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1467)
+
+*/
