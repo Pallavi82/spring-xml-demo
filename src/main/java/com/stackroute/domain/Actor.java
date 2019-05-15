@@ -1,10 +1,44 @@
 package com.stackroute.domain;
 
-public class Actor {
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Actor
+{
 
     private String name;
-    private  String gender;
-    private  int age;
+    private int age;
+    public Actor(String name, int age, String gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+
+    public String getGender() {
+        return gender;
+    }
+
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
+
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    private String gender;
+    public Actor(){}
+
+    public Actor(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public String getName() {
         return name;
@@ -12,14 +46,6 @@ public class Actor {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public int getAge() {
@@ -30,9 +56,4 @@ public class Actor {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Actor{" +  "name= " + name + '\'' +  ", gender= " + gender + '\'' +  ", age= " + age + '}';
-
-    }
 }
